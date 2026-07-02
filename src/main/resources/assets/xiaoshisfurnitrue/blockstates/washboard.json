@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "xiaoshisfurnitrue:block/washboard"
+    },
+    "facing=south": {
+      "model": "xiaoshisfurnitrue:block/washboard",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "xiaoshisfurnitrue:block/washboard",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "xiaoshisfurnitrue:block/washboard",
+      "y": 90
+    }
+  }
+}

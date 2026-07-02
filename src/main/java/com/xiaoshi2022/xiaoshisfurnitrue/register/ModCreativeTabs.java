@@ -16,5 +16,6 @@ public class ModCreativeTabs {
             .icon(() -> ModItems.WASHBOARD_BLOCK_ITEM.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
                 output.accept(ModItems.WASHBOARD_BLOCK_ITEM.get());
+                output.accept(ModItems.WATER_DISPENSER_ITEM.get());
             }).build());
 }

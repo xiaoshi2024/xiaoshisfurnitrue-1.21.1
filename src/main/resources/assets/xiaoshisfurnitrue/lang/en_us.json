@@ -1,5 +1,7 @@
 {
   "itemGroup.xiaoshisfurnitrue": "Xiaoshi's Furniture",
   "block.xiaoshisfurnitrue.washboard": "Washboard",
-  "item.xiaoshisfurnitrue.washboard": "Washboard"
+  "item.xiaoshisfurnitrue.washboard": "Washboard",
+  "block.xiaoshisfurnitrue.water_dispenser": "Water Dispenser",
+  "item.xiaoshisfurnitrue.water_dispenser": "Water Dispenser"
 }

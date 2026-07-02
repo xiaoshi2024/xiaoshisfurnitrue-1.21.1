@@ -1,25 +1,48 @@
+# 🏠 小噬的家具 - 让生活更有温度！
 
-Installation information
-=======
+厌倦了原版单调的方块？试试这 8 款会动的家具吧！
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+## ✨ 特色功能
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
+- ✅ **饮水机** - 接水接药水，还能装感染水！
+- ✅ **洗衣机 + 搓衣板** - 衣物清洁两件套
+- ✅ **晾衣机** - 衣服晾干还能修装备
+- ✅ **燃气灶 + 燃气罐** - 做饭有加成
+- ✅ **抽油烟机** - 厨房油烟全吸走
+- ✅ **微波炉** - "叮"一下就能吃
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
+## 🎬 丝滑动画
 
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
+所有家具都有 **GeckoLib** 驱动动画，每一个动作都丝滑流畅。
 
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+## 🎮 支持版本
+
+现已支持 **Minecraft 1.21.1**，快来打造你的温馨小窝吧！
+
+---
+
+## 📦 安装
+
+1. 安装 NeoForge Mod 加载器（对应 1.21.1 版本）
+2. 安装 GeckoLib 依赖模组
+3. 将本模组 Jar 放入 `.minecraft/mods` 文件夹
+4. 启动游戏，享受吧！
+
+## 🔧 开发环境
+
+```bash
+# 刷新依赖
+./gradlew --refresh-dependencies
+
+# 清理构建
+./gradlew clean
+
+# 构建 Jar
+./gradlew build
+```
+
+## 📚 相关资源
+
+- **NeoForged 文档**: https://docs.neoforged.net/
+- **GeckoLib 文档**: https://github.com/bernie-g/geckolib/wiki
+- **NeoForged Discord**: https://discord.neoforged.net/

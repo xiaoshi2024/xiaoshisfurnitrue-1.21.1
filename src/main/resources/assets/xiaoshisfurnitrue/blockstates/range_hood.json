@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "xiaoshisfurnitrue:block/range_hood"
+    },
+    "facing=south": {
+      "model": "xiaoshisfurnitrue:block/range_hood",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "xiaoshisfurnitrue:block/range_hood",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "xiaoshisfurnitrue:block/range_hood",
+      "y": 90
+    }
+  }
+}

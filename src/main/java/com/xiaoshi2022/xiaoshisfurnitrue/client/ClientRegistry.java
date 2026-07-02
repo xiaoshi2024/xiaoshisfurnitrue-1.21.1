@@ -2,6 +2,7 @@ package com.xiaoshi2022.xiaoshisfurnitrue.client;
 
 import com.xiaoshi2022.xiaoshisfurnitrue.register.ModBlockEntities;
 import com.xiaoshi2022.xiaoshisfurnitrue.render.MicrowaveOvenRenderer;
+import com.xiaoshi2022.xiaoshisfurnitrue.render.RangeHoodRenderer;
 import com.xiaoshi2022.xiaoshisfurnitrue.render.WashboardBlockRenderer;
 import com.xiaoshi2022.xiaoshisfurnitrue.render.WaterDispenserRenderer;
 import net.neoforged.api.distmarker.Dist;
@@ -23,5 +24,8 @@ public class ClientRegistry {
 
         event.registerBlockEntityRenderer(ModBlockEntities.MICROWAVE_OVEN_BLOCK_ENTITY.get(),
                 MicrowaveOvenRenderer::new);
+
+        event.registerBlockEntityRenderer(ModBlockEntities.RANGE_HOOD_BLOCK_ENTITY.get(),
+                RangeHoodRenderer::new);
     }
 }

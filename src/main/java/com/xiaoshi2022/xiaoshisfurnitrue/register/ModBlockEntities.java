@@ -2,6 +2,7 @@ package com.xiaoshi2022.xiaoshisfurnitrue.register;
 
 import com.xiaoshi2022.xiaoshisfurnitrue.XiaoshisFurnitrue;
 import com.xiaoshi2022.xiaoshisfurnitrue.block.entity.MicrowaveOvenBlockEntity;
+import com.xiaoshi2022.xiaoshisfurnitrue.block.entity.RangeHoodBlockEntity;
 import com.xiaoshi2022.xiaoshisfurnitrue.block.entity.WashboardBlockEntity;
 import com.xiaoshi2022.xiaoshisfurnitrue.block.entity.WaterDispenserBlockEntity;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -34,5 +35,11 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("water_dispenser",
                     () -> BlockEntityType.Builder.of(WaterDispenserBlockEntity::new,
                             ModBlocks.WATER_DISPENSER_BLOCK.get()).build(null)
+            );
+
+    public static final Supplier<BlockEntityType<RangeHoodBlockEntity>> RANGE_HOOD_BLOCK_ENTITY =
+            BLOCK_ENTITIES.register("range_hood",
+                    () -> BlockEntityType.Builder.of(RangeHoodBlockEntity::new,
+                            ModBlocks.RANGE_HOOD_BLOCK.get()).build(null)
             );
 }

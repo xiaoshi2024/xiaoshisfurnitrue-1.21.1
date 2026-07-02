@@ -1,6 +1,7 @@
 package com.xiaoshi2022.xiaoshisfurnitrue.register;
 
 import com.xiaoshi2022.xiaoshisfurnitrue.block.MicrowaveOvenBlock;
+import com.xiaoshi2022.xiaoshisfurnitrue.block.RangeHoodBlock;
 import com.xiaoshi2022.xiaoshisfurnitrue.block.WashboardBlock;
 import com.xiaoshi2022.xiaoshisfurnitrue.block.WaterDispenserBlock;
 import net.minecraft.world.level.block.Block;
@@ -44,5 +45,16 @@ public class ModBlocks {
                     .strength(2.0f, 4.0f)
                     .sound(SoundType.METAL)
                     .noOcclusion()
+    );
+
+    public static final DeferredBlock<RangeHoodBlock> RANGE_HOOD_BLOCK = BLOCKS.registerBlock(
+            "range_hood",
+            RangeHoodBlock::new,
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.METAL)
+                    .strength(0.5f, 1.5f)
+                    .sound(SoundType.METAL)
+                    .noOcclusion()
+                    .lightLevel(state -> state.getValue(RangeHoodBlock.POWERED) ? 8 : 0)
     );
 }

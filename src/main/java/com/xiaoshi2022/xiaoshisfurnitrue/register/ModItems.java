@@ -26,4 +26,10 @@ public class ModItems {
             "water_dispenser",
             () -> new BlockItem(ModBlocks.WATER_DISPENSER_BLOCK.get(), new Item.Properties())
     );
+
+    // 抽油烟机物品
+    public static final DeferredItem<BlockItem> RANGE_HOOD_ITEM = ITEMS.register(
+            "range_hood",
+            () -> new BlockItem(ModBlocks.RANGE_HOOD_BLOCK.get(), new Item.Properties())
+    );
 }

@@ -4,6 +4,7 @@ import com.mojang.serialization.MapCodec;
 import com.xiaoshi2022.xiaoshisfurnitrue.block.entity.WaterDispenserBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -24,6 +25,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraft.server.level.ServerLevel;
 
 import javax.annotation.Nullable;
 
@@ -31,6 +33,10 @@ public class WaterDispenserBlock extends BaseEntityBlock {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final BooleanProperty HAS_WATER = BooleanProperty.create("has_water");
     public static final IntegerProperty WATER_LEVEL = IntegerProperty.create("water_level", 0, 3);
+    public static final BooleanProperty DISPENSING = BooleanProperty.create("dispensing");
+    public static final BooleanProperty OPEN = BooleanProperty.create("open");
+
+    public static final int DISPENSING_ANIM_TICKS = 15;
 
     // 碰撞箱：饮水机是立式方块
     private static final VoxelShape SHAPE = Shapes.box(
@@ -43,7 +49,9 @@ public class WaterDispenserBlock extends BaseEntityBlock {
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(FACING, Direction.NORTH)
                 .setValue(HAS_WATER, true)
-                .setValue(WATER_LEVEL, 3));
+                .setValue(WATER_LEVEL, 3)
+                .setValue(DISPENSING, false)
+                .setValue(OPEN, false));
     }
 
     @Override
@@ -53,7 +61,14 @@ public class WaterDispenserBlock extends BaseEntityBlock {
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(FACING, HAS_WATER, WATER_LEVEL);
+        builder.add(FACING, HAS_WATER, WATER_LEVEL, DISPENSING, OPEN);
+    }
+
+    @Override
+    protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        if (state.getValue(DISPENSING)) {
+            level.setBlock(pos, state.setValue(DISPENSING, false), 3);
+        }
     }
 
     @Nullable
@@ -97,8 +112,8 @@ public class WaterDispenserBlock extends BaseEntityBlock {
 
         ItemStack heldItem = player.getItemInHand(InteractionHand.MAIN_HAND);
 
-        // 1. 检查是否拿着水桶/水瓶 -> 加水
-        if (heldItem.getItem() == Items.WATER_BUCKET || heldItem.getItem() == Items.GLASS_BOTTLE) {
+        // 1. 检查是否拿着水桶 -> 加水
+        if (heldItem.getItem() == Items.WATER_BUCKET) {
             return dispenserEntity.fillWater(player, heldItem);
         }
 

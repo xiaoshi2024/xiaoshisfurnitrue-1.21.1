@@ -17,5 +17,6 @@ public class ModCreativeTabs {
             .displayItems((parameters, output) -> {
                 output.accept(ModItems.WASHBOARD_BLOCK_ITEM.get());
                 output.accept(ModItems.WATER_DISPENSER_ITEM.get());
+                output.accept(ModItems.MICROWAVE_OVEN_ITEM.get());
             }).build());
 }

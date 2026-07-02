@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
+import com.xiaoshi2022.xiaoshisfurnitrue.network.ModNetwork;
 import com.xiaoshi2022.xiaoshisfurnitrue.register.ModBlockEntities;
 import com.xiaoshi2022.xiaoshisfurnitrue.register.ModBlocks;
 import com.xiaoshi2022.xiaoshisfurnitrue.register.ModCreativeTabs;
@@ -29,6 +30,7 @@ public class XiaoshisFurnitrue {
         ModItems.ITEMS.register(modEventBus);
         ModCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
         ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
+        ModNetwork.registerPackets(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
 

@@ -1,5 +1,6 @@
 package com.xiaoshi2022.xiaoshisfurnitrue.register;
 
+import com.xiaoshi2022.xiaoshisfurnitrue.block.MicrowaveOvenBlock;
 import com.xiaoshi2022.xiaoshisfurnitrue.block.WashboardBlock;
 import com.xiaoshi2022.xiaoshisfurnitrue.block.WaterDispenserBlock;
 import net.minecraft.world.level.block.Block;
@@ -22,6 +23,16 @@ public class ModBlocks {
                     .mapColor(MapColor.WOOD)
                     .strength(1.5f, 3.0f)
                     .sound(net.minecraft.world.level.block.SoundType.WOOD)
+                    .noOcclusion()
+    );
+
+    public static final DeferredBlock<MicrowaveOvenBlock> MICROWAVE_OVEN_BLOCK = BLOCKS.registerBlock(
+            "microwave_oven",
+            MicrowaveOvenBlock::new,
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.METAL)
+                    .strength(2.0f, 4.0f)
+                    .sound(SoundType.METAL)
                     .noOcclusion()
     );
 

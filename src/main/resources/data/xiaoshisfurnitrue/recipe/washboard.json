@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "category": "misc",
+    "pattern": [
+        " S ",
+        " A ",
+        " S "
+    ],
+    "key": {
+        "S": {
+            "tag": "minecraft:planks"
+        },
+        "A": {
+            "tag": "minecraft:planks"
+        }
+    },
+    "result": {
+        "id": "xiaoshisfurnitrue:washboard",
+        "count": 1
+    }
+}

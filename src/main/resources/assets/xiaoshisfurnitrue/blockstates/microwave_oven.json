@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "xiaoshisfurnitrue:block/microwave_oven"
+    },
+    "facing=south": {
+      "model": "xiaoshisfurnitrue:block/microwave_oven",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "xiaoshisfurnitrue:block/microwave_oven",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "xiaoshisfurnitrue:block/microwave_oven",
+      "y": 90
+    }
+  }
+}

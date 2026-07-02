@@ -16,6 +16,11 @@ public class ModItems {
             (properties) -> new WashboardItem(ModBlocks.WASHBOARD_BLOCK.get(), properties)
     );
 
+    public static final DeferredItem<BlockItem> MICROWAVE_OVEN_ITEM = ITEMS.register(
+            "microwave_oven",
+            () -> new BlockItem(ModBlocks.MICROWAVE_OVEN_BLOCK.get(), new Item.Properties())
+    );
+
     // 饮水机物品 - 使用 register 而不是 registerBlockItem
     public static final DeferredItem<BlockItem> WATER_DISPENSER_ITEM = ITEMS.register(
             "water_dispenser",

@@ -139,13 +139,14 @@ public class MicrowaveOvenBlock extends BaseEntityBlock {
             if (state.getValue(HAS_FOOD)) {
                 ItemStack food = ovenEntity.getFood();
                 if (!food.isEmpty()) {
-                    if (!player.getInventory().add(food)) {
-                        player.drop(food, false);
-                    }
+                    ovenEntity.setFoodInternal(ItemStack.EMPTY);
                     level.setBlock(pos, state
                             .setValue(HAS_FOOD, false)
                             .setValue(COOK_TIME, 0), 3);
                     ovenEntity.setFood(ItemStack.EMPTY);
+                    if (!player.getInventory().add(food)) {
+                        player.drop(food, false);
+                    }
                     level.playSound(null, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 0.5f, 1.0f);
                     return InteractionResult.CONSUME;
                 }
@@ -163,10 +164,10 @@ public class MicrowaveOvenBlock extends BaseEntityBlock {
             if (!player.isCreative()) {
                 heldItem.shrink(1);
             }
-            ovenEntity.setFood(food);
             level.setBlock(pos, state
                     .setValue(HAS_FOOD, true)
                     .setValue(COOK_TIME, 0), 3);
+            ovenEntity.setFood(food);
             level.playSound(null, pos, SoundEvents.ITEM_FRAME_ADD_ITEM, SoundSource.BLOCKS, 0.5f, 1.0f);
             return InteractionResult.CONSUME;
         }
@@ -200,11 +201,13 @@ public class MicrowaveOvenBlock extends BaseEntityBlock {
     }
 
     @Override
-    protected void onRemove(BlockState blockState, Level level, BlockPos blockPos, BlockState blockState2, boolean bl) {
-        if (level.getBlockEntity(blockPos) instanceof MicrowaveOvenBlockEntity be) {
-            Containers.dropItemStack(level, blockPos.getX(), blockPos.getY(), blockPos.getZ(), be.getFood());
+    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
+        if (!state.is(newState.getBlock())) {
+            if (level.getBlockEntity(pos) instanceof MicrowaveOvenBlockEntity be) {
+                Containers.dropItemStack(level, pos.getX(), pos.getY(), pos.getZ(), be.getFood());
+            }
         }
-        super.onRemove(blockState, level, blockPos, blockState2, bl);
+        super.onRemove(state, level, pos, newState, movedByPiston);
     }
 
     @Override

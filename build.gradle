@@ -184,6 +184,9 @@ dependencies {
     //mca联动
     implementation "maven.modrinth:minecraft-comes-alive-reborn:uZa9ZX7n"
 
+    //玉（高亮）
+    implementation "maven.modrinth:nvQzSEkH:yd8FKCmx"
+
     //尸兄本体
 //    implementation "maven.modrinth:12YXOqvq:1VW0mj9Z"
 

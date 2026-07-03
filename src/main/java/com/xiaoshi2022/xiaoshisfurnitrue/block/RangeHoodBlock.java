@@ -14,6 +14,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -123,6 +125,14 @@ public class RangeHoodBlock extends BaseEntityBlock {
         return new RangeHoodBlockEntity(pos, state);
     }
 
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntityType) {
+        return createTickerHelper(blockEntityType,
+                com.xiaoshi2022.xiaoshisfurnitrue.register.ModBlockEntities.RANGE_HOOD_BLOCK_ENTITY.get(),
+                RangeHoodBlockEntity::tick);
+    }
+
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         Direction facing = state.getValue(FACING);
@@ -146,15 +156,18 @@ public class RangeHoodBlock extends BaseEntityBlock {
             return InteractionResult.SUCCESS;
         }
 
+        // 用最新状态而非参数快照，避免 OFF_HAND/MAIN_HAND 连续两次调用传入同一旧快照
+        BlockState current = level.getBlockState(pos);
+
         if (player.isShiftKeyDown()) {
-            boolean open = state.getValue(OPEN);
-            level.setBlock(pos, state.setValue(OPEN, !open), 3);
+            boolean open = current.getValue(OPEN);
+            level.setBlock(pos, current.setValue(OPEN, !open), 3);
             level.playSound(null, pos,
                     open ? SoundEvents.IRON_TRAPDOOR_CLOSE : SoundEvents.IRON_TRAPDOOR_OPEN,
                     SoundSource.BLOCKS, 0.5f, 1.0f);
         } else {
-            boolean powered = state.getValue(POWERED);
-            level.setBlock(pos, state.setValue(POWERED, !powered), 3);
+            boolean powered = current.getValue(POWERED);
+            level.setBlock(pos, current.setValue(POWERED, !powered), 3);
             level.playSound(null, pos,
                     powered ? SoundEvents.PISTON_CONTRACT : SoundEvents.PISTON_EXTEND,
                     SoundSource.BLOCKS, 0.5f, 1.0f);

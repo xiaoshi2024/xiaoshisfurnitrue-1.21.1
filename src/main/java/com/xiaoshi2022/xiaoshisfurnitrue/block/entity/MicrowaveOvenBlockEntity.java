@@ -20,7 +20,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.gameevent.GameEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 import software.bernie.geckolib.animatable.GeoBlockEntity;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
@@ -48,6 +47,11 @@ public class MicrowaveOvenBlockEntity extends BlockEntity implements GeoBlockEnt
         this.food = stack.copy();
         this.setChanged();
         this.syncToClient();
+    }
+
+    public void setFoodInternal(ItemStack stack) {
+        this.food = stack.copy();
+        this.setChanged();
     }
 
     public void setFoodClient(ItemStack stack) {
@@ -93,6 +97,11 @@ public class MicrowaveOvenBlockEntity extends BlockEntity implements GeoBlockEnt
         this.isCooking = false;
         this.cookTimer = 0;
 
+        BlockState currentState = level.getBlockState(pos);
+        level.setBlock(pos, currentState
+                .setValue(MicrowaveOvenBlock.IS_COOKING, false)
+                .setValue(MicrowaveOvenBlock.COOK_TIME, 0), 3);
+
         if (!food.isEmpty()) {
             ItemStack cooked = getCookResult(level, food);
             if (!cooked.isEmpty()) {
@@ -100,10 +109,6 @@ public class MicrowaveOvenBlockEntity extends BlockEntity implements GeoBlockEnt
             }
         }
 
-        BlockState currentState = level.getBlockState(pos);
-        level.setBlock(pos, currentState
-                .setValue(MicrowaveOvenBlock.IS_COOKING, false)
-                .setValue(MicrowaveOvenBlock.COOK_TIME, 0), 3);
         level.playSound(null, pos, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 0.5f, 1.0f);
 
         this.setChanged();
@@ -172,6 +177,7 @@ public class MicrowaveOvenBlockEntity extends BlockEntity implements GeoBlockEnt
     @Override
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider provider) {
         super.loadAdditional(tag, provider);
+        food = ItemStack.EMPTY;
         if (tag.contains("Food")) {
             food = ItemStack.parseOptional(provider, tag.getCompound("Food"));
         }
@@ -219,11 +225,6 @@ public class MicrowaveOvenBlockEntity extends BlockEntity implements GeoBlockEnt
                         new MicrowaveOvenSyncPacket(getBlockPos(), this.food)
                 );
             }
-
-            level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(),
-                    Block.UPDATE_ALL | Block.UPDATE_CLIENTS | Block.UPDATE_IMMEDIATE);
-
-            level.gameEvent(GameEvent.BLOCK_CHANGE, getBlockPos(), GameEvent.Context.of(getBlockState()));
         }
     }
 

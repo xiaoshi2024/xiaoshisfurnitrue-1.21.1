@@ -1,12 +1,12 @@
 package com.xiaoshi2022.xiaoshisfurnitrue;
 
+import com.xiaoshi2022.xiaoshisfurnitrue.network.ModNetwork;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
-import com.xiaoshi2022.xiaoshisfurnitrue.network.ModNetwork;
 import com.xiaoshi2022.xiaoshisfurnitrue.register.ModBlockEntities;
 import com.xiaoshi2022.xiaoshisfurnitrue.register.ModBlocks;
 import com.xiaoshi2022.xiaoshisfurnitrue.register.ModCreativeTabs;

@@ -7,5 +7,6 @@
   "block.xiaoshisfurnitrue.microwave_oven": "Microwave Oven",
   "item.xiaoshisfurnitrue.microwave_oven": "Microwave Oven",
   "block.xiaoshisfurnitrue.range_hood": "Range Hood",
-  "item.xiaoshisfurnitrue.range_hood": "Range Hood"
+  "item.xiaoshisfurnitrue.range_hood": "Range Hood",
+  "message.microwave_oven.has_food": "Microwave oven already has food!"
 }

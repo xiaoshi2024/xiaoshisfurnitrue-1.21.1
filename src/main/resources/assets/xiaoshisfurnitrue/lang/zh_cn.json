@@ -7,5 +7,6 @@
   "block.xiaoshisfurnitrue.microwave_oven": "微波炉",
   "item.xiaoshisfurnitrue.microwave_oven": "微波炉",
   "block.xiaoshisfurnitrue.range_hood": "抽油烟机",
-  "item.xiaoshisfurnitrue.range_hood": "抽油烟机"
+  "item.xiaoshisfurnitrue.range_hood": "抽油烟机",
+  "message.microwave_oven.has_food": "微波炉里已经有食物了！"
 }

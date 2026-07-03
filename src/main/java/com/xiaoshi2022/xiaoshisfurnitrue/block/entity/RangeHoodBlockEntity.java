@@ -8,6 +8,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
@@ -20,7 +21,6 @@ public class RangeHoodBlockEntity extends BlockEntity implements GeoBlockEntity 
 
     private static final RawAnimation IDLE = RawAnimation.begin().thenLoop("idle");
     private static final RawAnimation OPEN = RawAnimation.begin().thenPlayAndHold("open");
-    private static final RawAnimation POWERED_IDLE = RawAnimation.begin().thenLoop("idle");
 
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 
@@ -28,17 +28,17 @@ public class RangeHoodBlockEntity extends BlockEntity implements GeoBlockEntity 
         super(ModBlockEntities.RANGE_HOOD_BLOCK_ENTITY.get(), pos, state);
     }
 
+    public static void tick(Level level, BlockPos pos, BlockState state, RangeHoodBlockEntity entity) {
+    }
+
+    public static <T extends BlockEntity> void tick(Level level, BlockPos pos, BlockState state, T entity) {
+        if (entity instanceof RangeHoodBlockEntity hood) {
+            tick(level, pos, state, hood);
+        }
+    }
+
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        AnimationController<RangeHoodBlockEntity> mainController = new AnimationController<>(
-                this, "main_controller", 0, state -> {
-            BlockState blockState = getBlockState();
-            if (blockState.getValue(RangeHoodBlock.POWERED)) {
-                return state.setAndContinue(POWERED_IDLE);
-            }
-            return state.setAndContinue(IDLE);
-        });
-
         AnimationController<RangeHoodBlockEntity> leafController = new AnimationController<>(
                 this, "leaf_controller", 0, state -> {
             BlockState blockState = getBlockState();
@@ -48,7 +48,6 @@ public class RangeHoodBlockEntity extends BlockEntity implements GeoBlockEntity 
             return state.setAndContinue(IDLE);
         });
 
-        controllers.add(mainController);
         controllers.add(leafController);
     }
 

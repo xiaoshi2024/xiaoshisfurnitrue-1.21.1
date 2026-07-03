@@ -8,6 +8,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
@@ -34,15 +35,22 @@ public class WashboardBlockEntity extends BlockEntity implements GeoBlockEntity 
 
     protected <E extends WashboardBlockEntity> PlayState animController(final AnimationState<E> state) {
         BlockState blockstate = getBlockState();
+
         if (blockstate.getValue(WashboardBlock.ACTIVE)) {
             return state.setAndContinue(LAY);
         }
+
         return state.setAndContinue(IDLE);
     }
 
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return this.cache;
+    }
+
+    // ===== 服务器端tick =====
+    public void tick(Level level, BlockPos pos, BlockState state) {
+        // 服务器端逻辑
     }
 
     // ===== 数据同步：服务器 -> 客户端 =====
@@ -67,5 +75,10 @@ public class WashboardBlockEntity extends BlockEntity implements GeoBlockEntity 
     @Override
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
+    }
+
+    @Override
+    public void handleUpdateTag(CompoundTag tag, HolderLookup.Provider provider) {
+        this.loadAdditional(tag, provider);
     }
 }

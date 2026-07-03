@@ -11,6 +11,8 @@ import com.xiaoshi2022.xiaoshisfurnitrue.register.ModBlockEntities;
 import com.xiaoshi2022.xiaoshisfurnitrue.register.ModBlocks;
 import com.xiaoshi2022.xiaoshisfurnitrue.register.ModCreativeTabs;
 import com.xiaoshi2022.xiaoshisfurnitrue.register.ModItems;
+import com.xiaoshi2022.xiaoshisfurnitrue.register.ModPOIs;
+import com.xiaoshi2022.xiaoshisfurnitrue.register.ModVillagers;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
@@ -31,8 +33,11 @@ public class XiaoshisFurnitrue {
         ModCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
         ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
         ModNetwork.registerPackets(modEventBus);
+        ModPOIs.POI_TYPES.register(modEventBus);
+        ModVillagers.VILLAGER_PROFESSIONS.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
+        NeoForge.EVENT_BUS.register(new ModVillagers());
 
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }

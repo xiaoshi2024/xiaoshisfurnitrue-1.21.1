@@ -1,0 +1,10 @@
+{
+  "xiaoshisfurnitrue:skins/clothing/normal/female/furniture_merchant/0.png": {
+    "profession": "xiaoshisfurnitrue:furniture_merchant",
+    "chance": 1
+  },
+  "xiaoshisfurnitrue:skins/clothing/zombie/female/furniture_merchant/0.png": {
+    "profession": "xiaoshisfurnitrue:furniture_merchant",
+    "chance": 1
+  }
+}

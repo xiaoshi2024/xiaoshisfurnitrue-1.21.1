@@ -3,6 +3,1546 @@
     "xiaoshisfurnitrue:washboard",
     "xiaoshisfurnitrue:microwave_oven",
     "xiaoshisfurnitrue:water_dispenser",
-    "xiaoshisfurnitrue:range_hood"
+    "xiaoshisfurnitrue:range_hood",
+    {
+      "id": "refurbished_furniture:workbench",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:oak_chair",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:spruce_chair",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:birch_chair",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:jungle_chair",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:acacia_chair",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:dark_oak_chair",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:mangrove_chair",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:cherry_chair",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:crimson_chair",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:warped_chair",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:oak_table",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:spruce_table",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:birch_table",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:jungle_table",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:acacia_table",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:dark_oak_table",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:mangrove_table",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:cherry_table",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:crimson_table",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:warped_table",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:oak_desk",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:spruce_desk",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:birch_desk",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:jungle_desk",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:acacia_desk",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:dark_oak_desk",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:mangrove_desk",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:cherry_desk",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:crimson_desk",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:warped_desk",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:oak_drawer",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:spruce_drawer",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:birch_drawer",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:jungle_drawer",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:acacia_drawer",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:dark_oak_drawer",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:mangrove_drawer",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:cherry_drawer",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:crimson_drawer",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:warped_drawer",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:oak_kitchen_cabinetry",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:spruce_kitchen_cabinetry",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:birch_kitchen_cabinetry",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:jungle_kitchen_cabinetry",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:acacia_kitchen_cabinetry",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:dark_oak_kitchen_cabinetry",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:mangrove_kitchen_cabinetry",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:cherry_kitchen_cabinetry",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:crimson_kitchen_cabinetry",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:warped_kitchen_cabinetry",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:oak_kitchen_drawer",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:spruce_kitchen_drawer",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:birch_kitchen_drawer",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:jungle_kitchen_drawer",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:acacia_kitchen_drawer",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:dark_oak_kitchen_drawer",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:mangrove_kitchen_drawer",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:cherry_kitchen_drawer",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:crimson_kitchen_drawer",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:warped_kitchen_drawer",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:oak_kitchen_sink",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:spruce_kitchen_sink",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:birch_kitchen_sink",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:jungle_kitchen_sink",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:acacia_kitchen_sink",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:dark_oak_kitchen_sink",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:mangrove_kitchen_sink",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:cherry_kitchen_sink",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:crimson_kitchen_sink",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:warped_kitchen_sink",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:oak_kitchen_storage_cabinet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:spruce_kitchen_storage_cabinet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:birch_kitchen_storage_cabinet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:jungle_kitchen_storage_cabinet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:acacia_kitchen_storage_cabinet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:dark_oak_kitchen_storage_cabinet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:mangrove_kitchen_storage_cabinet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:cherry_kitchen_storage_cabinet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:crimson_kitchen_storage_cabinet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:warped_kitchen_storage_cabinet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:light_fridge",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:dark_fridge",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:light_freezer",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:dark_freezer",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:light_toaster",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:dark_toaster",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:light_microwave",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:dark_microwave",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:light_stove",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:dark_stove",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:light_range_hood",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:dark_range_hood",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:frying_pan",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:recycle_bin",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:oak_cutting_board",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:spruce_cutting_board",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:birch_cutting_board",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:jungle_cutting_board",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:acacia_cutting_board",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:dark_oak_cutting_board",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:mangrove_cutting_board",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:cherry_cutting_board",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:crimson_cutting_board",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:warped_cutting_board",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:plate",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:oak_crate",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:spruce_crate",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:birch_crate",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:jungle_crate",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:acacia_crate",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:dark_oak_crate",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:mangrove_crate",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:cherry_crate",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:crimson_crate",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:warped_crate",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:white_grill",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:orange_grill",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:magenta_grill",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:light_blue_grill",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:yellow_grill",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:lime_grill",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:pink_grill",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:gray_grill",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:light_gray_grill",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:cyan_grill",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:purple_grill",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:blue_grill",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:brown_grill",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:green_grill",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:red_grill",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:black_grill",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:white_cooler",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:orange_cooler",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:magenta_cooler",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:light_blue_cooler",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:yellow_cooler",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:lime_cooler",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:pink_cooler",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:gray_cooler",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:light_gray_cooler",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:cyan_cooler",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:purple_cooler",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:blue_cooler",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:brown_cooler",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:green_cooler",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:red_cooler",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:black_cooler",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:oak_mail_box",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:spruce_mail_box",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:birch_mail_box",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:jungle_mail_box",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:acacia_mail_box",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:dark_oak_mail_box",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:mangrove_mail_box",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:cherry_mail_box",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:crimson_mail_box",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:warped_mail_box",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:post_box",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:white_trampoline",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:orange_trampoline",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:magenta_trampoline",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:light_blue_trampoline",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:yellow_trampoline",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:lime_trampoline",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:pink_trampoline",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:gray_trampoline",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:light_gray_trampoline",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:cyan_trampoline",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:purple_trampoline",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:blue_trampoline",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:brown_trampoline",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:green_trampoline",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:red_trampoline",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:black_trampoline",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:oak_hedge",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:spruce_hedge",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:birch_hedge",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:jungle_hedge",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:acacia_hedge",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:dark_oak_hedge",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:mangrove_hedge",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:cherry_hedge",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:azalea_hedge",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:stone_stepping_stones",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:granite_stepping_stones",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:diorite_stepping_stones",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:andesite_stepping_stones",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:deepslate_stepping_stones",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:oak_lattice_fence",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:spruce_lattice_fence",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:birch_lattice_fence",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:jungle_lattice_fence",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:acacia_lattice_fence",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:dark_oak_lattice_fence",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:mangrove_lattice_fence",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:cherry_lattice_fence",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:crimson_lattice_fence",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:warped_lattice_fence",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:oak_lattice_fence_gate",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:spruce_lattice_fence_gate",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:birch_lattice_fence_gate",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:jungle_lattice_fence_gate",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:acacia_lattice_fence_gate",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:dark_oak_lattice_fence_gate",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:mangrove_lattice_fence_gate",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:cherry_lattice_fence_gate",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:crimson_lattice_fence_gate",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:warped_lattice_fence_gate",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:door_mat",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:white_sofa",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:orange_sofa",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:magenta_sofa",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:light_blue_sofa",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:yellow_sofa",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:lime_sofa",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:pink_sofa",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:gray_sofa",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:light_gray_sofa",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:cyan_sofa",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:purple_sofa",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:blue_sofa",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:brown_sofa",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:green_sofa",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:red_sofa",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:black_sofa",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:white_stool",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:orange_stool",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:magenta_stool",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:light_blue_stool",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:yellow_stool",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:lime_stool",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:pink_stool",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:gray_stool",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:light_gray_stool",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:cyan_stool",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:purple_stool",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:blue_stool",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:brown_stool",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:green_stool",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:red_stool",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:black_stool",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:white_lamp",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:orange_lamp",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:magenta_lamp",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:light_blue_lamp",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:yellow_lamp",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:lime_lamp",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:pink_lamp",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:gray_lamp",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:light_gray_lamp",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:cyan_lamp",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:purple_lamp",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:blue_lamp",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:brown_lamp",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:green_lamp",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:red_lamp",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:black_lamp",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:oak_light_ceiling_fan",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:spruce_light_ceiling_fan",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:birch_light_ceiling_fan",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:jungle_light_ceiling_fan",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:acacia_light_ceiling_fan",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:dark_oak_light_ceiling_fan",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:mangrove_light_ceiling_fan",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:cherry_light_ceiling_fan",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:crimson_light_ceiling_fan",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:warped_light_ceiling_fan",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:oak_dark_ceiling_fan",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:spruce_dark_ceiling_fan",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:birch_dark_ceiling_fan",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:jungle_dark_ceiling_fan",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:acacia_dark_ceiling_fan",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:dark_oak_dark_ceiling_fan",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:mangrove_dark_ceiling_fan",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:cherry_dark_ceiling_fan",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:crimson_dark_ceiling_fan",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:warped_dark_ceiling_fan",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:oak_storage_cabinet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:spruce_storage_cabinet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:birch_storage_cabinet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:jungle_storage_cabinet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:acacia_storage_cabinet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:dark_oak_storage_cabinet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:mangrove_storage_cabinet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:cherry_storage_cabinet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:crimson_storage_cabinet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:warped_storage_cabinet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:oak_storage_jar",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:spruce_storage_jar",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:birch_storage_jar",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:jungle_storage_jar",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:acacia_storage_jar",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:dark_oak_storage_jar",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:mangrove_storage_jar",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:cherry_storage_jar",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:crimson_storage_jar",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:warped_storage_jar",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:oak_toilet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:spruce_toilet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:birch_toilet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:jungle_toilet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:acacia_toilet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:dark_oak_toilet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:mangrove_toilet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:cherry_toilet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:crimson_toilet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:warped_toilet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:white_toilet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:orange_toilet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:magenta_toilet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:light_blue_toilet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:yellow_toilet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:lime_toilet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:pink_toilet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:gray_toilet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:light_gray_toilet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:cyan_toilet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:purple_toilet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:blue_toilet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:brown_toilet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:green_toilet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:red_toilet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:black_toilet",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:oak_basin",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:spruce_basin",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:birch_basin",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:jungle_basin",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:acacia_basin",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:dark_oak_basin",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:mangrove_basin",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:cherry_basin",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:crimson_basin",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:warped_basin",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:white_basin",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:orange_basin",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:magenta_basin",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:light_blue_basin",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:yellow_basin",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:lime_basin",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:pink_basin",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:gray_basin",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:light_gray_basin",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:cyan_basin",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:purple_basin",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:blue_basin",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:brown_basin",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:green_basin",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:red_basin",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:black_basin",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:oak_bath",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:spruce_bath",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:birch_bath",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:jungle_bath",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:acacia_bath",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:dark_oak_bath",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:mangrove_bath",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:cherry_bath",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:crimson_bath",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:warped_bath",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:white_bath",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:orange_bath",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:magenta_bath",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:light_blue_bath",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:yellow_bath",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:lime_bath",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:pink_bath",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:gray_bath",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:light_gray_bath",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:cyan_bath",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:purple_bath",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:blue_bath",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:brown_bath",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:green_bath",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:red_bath",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:black_bath",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:light_electricity_generator",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:dark_electricity_generator",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:light_lightswitch",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:dark_lightswitch",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:light_ceiling_light",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:dark_ceiling_light",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:doorbell",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:television",
+      "required": false
+    },
+    {
+      "id": "refurbished_furniture:computer",
+      "required": false
+    }
   ]
 }

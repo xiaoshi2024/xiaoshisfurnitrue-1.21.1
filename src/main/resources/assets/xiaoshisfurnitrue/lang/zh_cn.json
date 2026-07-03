@@ -35,5 +35,6 @@
   "jade.xiaoshisfurnitrue.heating.no_water": "加热中（无水）",
   "jade.xiaoshisfurnitrue.dispense": "取水",
   "jade.xiaoshisfurnitrue.heat": "加热",
-  "jade.xiaoshisfurnitrue.info": "信息"
+  "jade.xiaoshisfurnitrue.info": "信息",
+  "entity.minecraft.villager.xiaoshisfurnitrue.furniture_merchant": "家具商人"
 }

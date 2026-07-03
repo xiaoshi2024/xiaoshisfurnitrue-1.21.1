@@ -35,5 +35,6 @@
   "jade.xiaoshisfurnitrue.heating.no_water": "Heating (No Water)",
   "jade.xiaoshisfurnitrue.dispense": "Dispense",
   "jade.xiaoshisfurnitrue.heat": "Heat",
-  "jade.xiaoshisfurnitrue.info": "Info"
+  "jade.xiaoshisfurnitrue.info": "Info",
+  "entity.minecraft.villager.xiaoshisfurnitrue.furniture_merchant": "Furniture Merchant"
 }

@@ -36,5 +36,6 @@
   "jade.xiaoshisfurnitrue.dispense": "取水",
   "jade.xiaoshisfurnitrue.heat": "加热",
   "jade.xiaoshisfurnitrue.info": "信息",
-  "entity.minecraft.villager.xiaoshisfurnitrue.furniture_merchant": "家具商人"
+  "entity.minecraft.villager.xiaoshisfurnitrue.furniture_merchant": "家具商人",
+  "structure.xiaoshisfurnitrue.furniture_store": "家具商店"
 }

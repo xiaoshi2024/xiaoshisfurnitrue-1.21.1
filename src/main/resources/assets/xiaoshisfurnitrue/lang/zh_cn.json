@@ -21,5 +21,19 @@
   "jade.xiaoshisfurnitrue.on": "开启",
   "jade.xiaoshisfurnitrue.off": "关闭",
   "jade.xiaoshisfurnitrue.open": "打开",
-  "jade.xiaoshisfurnitrue.closed": "关闭"
+  "jade.xiaoshisfurnitrue.closed": "关闭",
+  "jade.xiaoshisfurnitrue.temp.cold": "❄️ 冷水",
+  "jade.xiaoshisfurnitrue.temp.warm": "🌡️ 温水",
+  "jade.xiaoshisfurnitrue.temp.hot": "🔥 热水",
+  "jade.xiaoshisfurnitrue.temp.boiling": "💧 沸水",
+  "jade.xiaoshisfurnitrue.temp.unknown": "❓ 未知",
+  "jade.xiaoshisfurnitrue.water_dispenser.powered": "⚡ 已通电",
+  "jade.xiaoshisfurnitrue.water_dispenser.unpowered": "⛔ 未通电",
+  "jade.xiaoshisfurnitrue.water_dispenser.heating": "🔥 加热中",
+  "jade.xiaoshisfurnitrue.water_dispenser.idle": "💤 待机",
+  "jade.xiaoshisfurnitrue.heating": "加热中",
+  "jade.xiaoshisfurnitrue.heating.no_water": "加热中（无水）",
+  "jade.xiaoshisfurnitrue.dispense": "取水",
+  "jade.xiaoshisfurnitrue.heat": "加热",
+  "jade.xiaoshisfurnitrue.info": "信息"
 }

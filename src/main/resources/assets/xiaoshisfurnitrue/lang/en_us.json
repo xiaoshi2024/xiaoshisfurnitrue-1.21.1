@@ -21,5 +21,19 @@
   "jade.xiaoshisfurnitrue.on": "ON",
   "jade.xiaoshisfurnitrue.off": "OFF",
   "jade.xiaoshisfurnitrue.open": "Open",
-  "jade.xiaoshisfurnitrue.closed": "Closed"
+  "jade.xiaoshisfurnitrue.closed": "Closed",
+  "jade.xiaoshisfurnitrue.temp.cold": "❄️ Cold",
+  "jade.xiaoshisfurnitrue.temp.warm": "🌡️ Warm",
+  "jade.xiaoshisfurnitrue.temp.hot": "🔥 Hot",
+  "jade.xiaoshisfurnitrue.temp.boiling": "💧 Boiling",
+  "jade.xiaoshisfurnitrue.temp.unknown": "❓ Unknown",
+  "jade.xiaoshisfurnitrue.water_dispenser.powered": "⚡ Powered",
+  "jade.xiaoshisfurnitrue.water_dispenser.unpowered": "⛔ Unpowered",
+  "jade.xiaoshisfurnitrue.water_dispenser.heating": "🔥 Heating",
+  "jade.xiaoshisfurnitrue.water_dispenser.idle": "💤 Idle",
+  "jade.xiaoshisfurnitrue.heating": "Heating",
+  "jade.xiaoshisfurnitrue.heating.no_water": "Heating (No Water)",
+  "jade.xiaoshisfurnitrue.dispense": "Dispense",
+  "jade.xiaoshisfurnitrue.heat": "Heat",
+  "jade.xiaoshisfurnitrue.info": "Info"
 }

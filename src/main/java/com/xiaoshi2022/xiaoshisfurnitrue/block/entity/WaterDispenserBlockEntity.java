@@ -54,7 +54,7 @@ public class WaterDispenserBlockEntity extends BlockEntity implements GeoBlockEn
             player.getInventory().add(new ItemStack(Items.BUCKET));
         }
 
-        int newLevel = Math.min(currentLevel + 1, 3);
+        int newLevel = Math.min(currentLevel + 3, 3);
         boolean hasWater = newLevel > 0;
 
         BlockState newState = state

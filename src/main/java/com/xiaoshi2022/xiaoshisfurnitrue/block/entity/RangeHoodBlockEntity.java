@@ -28,7 +28,25 @@ public class RangeHoodBlockEntity extends BlockEntity implements GeoBlockEntity 
         super(ModBlockEntities.RANGE_HOOD_BLOCK_ENTITY.get(), pos, state);
     }
 
+    public static final int SMOKE_ABSORB_RADIUS_H = 2;
+    public static final int SMOKE_ABSORB_DEPTH = 4;
+
+    // 每2秒吸收一次（20 tick = 1秒，40 tick = 2秒）
+    private static final int ABSORB_INTERVAL = 40;
+
     public static void tick(Level level, BlockPos pos, BlockState state, RangeHoodBlockEntity entity) {
+        if (level.isClientSide()) {
+            return;
+        }
+        if (!state.getValue(RangeHoodBlock.POWERED)) {
+            return;
+        }
+        // 每2秒执行一次吸收
+        if ((level.getGameTime() % ABSORB_INTERVAL) != 0) {
+            return;
+        }
+
+        RangeHoodBlock.absorbSmoke(level, pos);
     }
 
     public static <T extends BlockEntity> void tick(Level level, BlockPos pos, BlockState state, T entity) {

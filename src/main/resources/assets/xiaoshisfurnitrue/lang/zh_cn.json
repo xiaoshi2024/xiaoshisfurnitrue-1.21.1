@@ -8,5 +8,18 @@
   "item.xiaoshisfurnitrue.microwave_oven": "微波炉",
   "block.xiaoshisfurnitrue.range_hood": "抽油烟机",
   "item.xiaoshisfurnitrue.range_hood": "抽油烟机",
-  "message.microwave_oven.has_food": "微波炉里已经有食物了！"
+  "message.microwave_oven.has_food": "微波炉里已经有食物了！",
+  "config.jade.plugin_xiaoshisfurnitrue.water_level": "饮水机储水量",
+  "config.jade.plugin_xiaoshisfurnitrue.microwave_cook_progress": "微波炉烹饪进度",
+  "config.jade.plugin_xiaoshisfurnitrue.range_hood_status": "抽油烟机状态",
+  "jade.xiaoshisfurnitrue.water_level": "储水量：%d / 3",
+  "jade.xiaoshisfurnitrue.microwave.has_food": "有食物",
+  "jade.xiaoshisfurnitrue.microwave.cook_progress": "加热中：%d%%",
+  "jade.xiaoshisfurnitrue.microwave.empty": "（空）",
+  "jade.xiaoshisfurnitrue.range_hood.power": "电源：%s",
+  "jade.xiaoshisfurnitrue.range_hood.vent": "百叶窗：%s",
+  "jade.xiaoshisfurnitrue.on": "开启",
+  "jade.xiaoshisfurnitrue.off": "关闭",
+  "jade.xiaoshisfurnitrue.open": "打开",
+  "jade.xiaoshisfurnitrue.closed": "关闭"
 }

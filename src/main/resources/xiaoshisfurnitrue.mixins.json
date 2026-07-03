@@ -2,7 +2,9 @@
   "required": true,
   "package": "com.xiaoshi2022.xiaoshisfurnitrue.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": [],
+  "mixins": [
+    "CampfireBlockMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   },

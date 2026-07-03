@@ -8,5 +8,18 @@
   "item.xiaoshisfurnitrue.microwave_oven": "Microwave Oven",
   "block.xiaoshisfurnitrue.range_hood": "Range Hood",
   "item.xiaoshisfurnitrue.range_hood": "Range Hood",
-  "message.microwave_oven.has_food": "Microwave oven already has food!"
+  "message.microwave_oven.has_food": "Microwave oven already has food!",
+  "config.jade.plugin_xiaoshisfurnitrue.water_level": "Water Dispenser Water Level",
+  "config.jade.plugin_xiaoshisfurnitrue.microwave_cook_progress": "Microwave Cook Progress",
+  "config.jade.plugin_xiaoshisfurnitrue.range_hood_status": "Range Hood Status",
+  "jade.xiaoshisfurnitrue.water_level": "Water: %d / 3",
+  "jade.xiaoshisfurnitrue.microwave.has_food": "Has food",
+  "jade.xiaoshisfurnitrue.microwave.cook_progress": "Cooking: %d%%",
+  "jade.xiaoshisfurnitrue.microwave.empty": "(Empty)",
+  "jade.xiaoshisfurnitrue.range_hood.power": "Power: %s",
+  "jade.xiaoshisfurnitrue.range_hood.vent": "Vent: %s",
+  "jade.xiaoshisfurnitrue.on": "ON",
+  "jade.xiaoshisfurnitrue.off": "OFF",
+  "jade.xiaoshisfurnitrue.open": "Open",
+  "jade.xiaoshisfurnitrue.closed": "Closed"
 }

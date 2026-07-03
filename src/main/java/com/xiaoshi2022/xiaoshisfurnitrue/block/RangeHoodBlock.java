@@ -1,12 +1,17 @@
 package com.xiaoshi2022.xiaoshisfurnitrue.block;
 
 import com.mojang.serialization.MapCodec;
+import com.xiaoshi2022.xiaoshisfurnitrue.XiaoshisFurnitrue;
 import com.xiaoshi2022.xiaoshisfurnitrue.block.entity.RangeHoodBlockEntity;
+import com.xiaoshi2022.xiaoshisfurnitrue.register.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.AreaEffectCloud;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -21,12 +26,15 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
+import java.util.List;
 
 public class RangeHoodBlock extends BaseEntityBlock {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
@@ -128,8 +136,11 @@ public class RangeHoodBlock extends BaseEntityBlock {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntityType) {
+        if (level.isClientSide()) {
+            return null;
+        }
         return createTickerHelper(blockEntityType,
-                com.xiaoshi2022.xiaoshisfurnitrue.register.ModBlockEntities.RANGE_HOOD_BLOCK_ENTITY.get(),
+                ModBlockEntities.RANGE_HOOD_BLOCK_ENTITY.get(),
                 RangeHoodBlockEntity::tick);
     }
 
@@ -151,28 +162,84 @@ public class RangeHoodBlock extends BaseEntityBlock {
     }
 
     @Override
+    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
+        if (!state.getValue(POWERED)) {
+            return;
+        }
+        if (random.nextInt(4) != 0) {
+            return;
+        }
+        Direction facing = state.getValue(FACING);
+        double x = pos.getX() + 0.5;
+        double y = pos.getY() + 0.1;
+        double z = pos.getZ() + 0.5;
+
+        for (int i = 0; i < 2; i++) {
+            double ox = (random.nextDouble() - 0.5) * 0.8;
+            double oz = (random.nextDouble() - 0.5) * 0.8;
+            double px = x + ox;
+            double pz = z + oz;
+            double py = y - random.nextDouble() * (RangeHoodBlockEntity.SMOKE_ABSORB_DEPTH - 0.5);
+            double vy = 0.06 + random.nextDouble() * 0.05;
+            double vx = (x - px) * 0.02;
+            double vz = (z - pz) * 0.02;
+            level.addParticle(ParticleTypes.PORTAL, px, py, pz, vx, vy, vz);
+        }
+    }
+
+    @Override
     public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (level.isClientSide) {
             return InteractionResult.SUCCESS;
         }
 
-        // 用最新状态而非参数快照，避免 OFF_HAND/MAIN_HAND 连续两次调用传入同一旧快照
         BlockState current = level.getBlockState(pos);
 
         if (player.isShiftKeyDown()) {
+            // 潜行右键：开关翻盖
             boolean open = current.getValue(OPEN);
             level.setBlock(pos, current.setValue(OPEN, !open), 3);
             level.playSound(null, pos,
                     open ? SoundEvents.IRON_TRAPDOOR_CLOSE : SoundEvents.IRON_TRAPDOOR_OPEN,
                     SoundSource.BLOCKS, 0.5f, 1.0f);
         } else {
+            // 普通右键：开关电源
             boolean powered = current.getValue(POWERED);
             level.setBlock(pos, current.setValue(POWERED, !powered), 3);
             level.playSound(null, pos,
                     powered ? SoundEvents.PISTON_CONTRACT : SoundEvents.PISTON_EXTEND,
                     SoundSource.BLOCKS, 0.5f, 1.0f);
+
+            // 如果刚通电，立即吸收一次烟雾
+            if (!powered) {
+                absorbSmoke(level, pos);
+            }
         }
         return InteractionResult.CONSUME;
+    }
+
+    /**
+     * 吸收指定位置周围的烟雾（药水云）
+     */
+    public static void absorbSmoke(Level level, BlockPos pos) {
+        int radius = 2;
+        int depth = 4;
+
+        AABB area = new AABB(
+                pos.getX() + 0.5 - radius,
+                pos.getY() - depth,
+                pos.getZ() + 0.5 - radius,
+                pos.getX() + 0.5 + radius,
+                pos.getY(),
+                pos.getZ() + 0.5 + radius
+        );
+
+        List<AreaEffectCloud> clouds = level.getEntitiesOfClass(AreaEffectCloud.class, area);
+        if (!clouds.isEmpty()) {
+            for (AreaEffectCloud cloud : clouds) {
+                cloud.discard();
+            }
+        }
     }
 
     @Override

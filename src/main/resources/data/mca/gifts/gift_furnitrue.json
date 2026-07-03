@@ -1,0 +1,22 @@
+{
+  "conditions": [
+    {
+      "condition": "mca:profession",
+      "profession": "mca:guard"
+    }
+  ],
+  "thresholds": {
+    "fail": 0,
+    "good": 10,
+    "better": 20
+  },
+  "responses": {
+    "fail": "gift.fail",
+    "good": "gift.good",
+    "better": "gift.better",
+    "best": "gift.best"
+  },
+  "items": {
+    "#xiaoshisfurnitrue:furniture": 10
+  }
+}

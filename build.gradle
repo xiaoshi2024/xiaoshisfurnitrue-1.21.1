@@ -184,6 +184,11 @@ dependencies {
     //mca联动
     implementation "maven.modrinth:minecraft-comes-alive-reborn:uZa9ZX7n"
 
+    //口渴mod - 软编译（可选依赖）
+    compileOnly "maven.modrinth:iUheEnjm:YqPoqXIx"
+    compileOnly "maven.modrinth:GV0PyXSv:8L6mVLAs"
+    localRuntime "maven.modrinth:iUheEnjm:YqPoqXIx"
+    localRuntime "maven.modrinth:GV0PyXSv:8L6mVLAs"
     //玉（高亮）
     implementation "maven.modrinth:nvQzSEkH:yd8FKCmx"
 

@@ -97,8 +97,15 @@ public class WaterDispenserBlock extends BaseEntityBlock {
                     level.addParticle(ParticleTypes.CLOUD, x, pos.getY() + 1.0, z, 0, 0.02, 0);
                 }
 
+                // ===== 水温达到沸腾时净化水质 =====
                 if (newTemp == 3) {
                     level.playSound(null, pos, SoundEvents.LAVA_AMBIENT, SoundSource.BLOCKS, 0.3f, 1.5f);
+
+                    // 获取 BlockEntity 并执行净化
+                    BlockEntity entity = level.getBlockEntity(pos);
+                    if (entity instanceof WaterDispenserBlockEntity dispenser) {
+                        dispenser.onHeatingComplete();
+                    }
                 }
             }
             level.scheduleTick(pos, this, HEATING_INTERVAL);
@@ -197,6 +204,7 @@ public class WaterDispenserBlock extends BaseEntityBlock {
             boolean heating = state.getValue(HEATING);
             int temp = state.getValue(TEMPERATURE);
             int levelVal = state.getValue(WATER_LEVEL);
+            int purity = dispenserEntity.getWaterPurity();
 
             String status = powered ? "§a已通电" : "§c未通电";
             String heatStatus = heating ? "§6加热中" : "§7待机";
@@ -207,11 +215,18 @@ public class WaterDispenserBlock extends BaseEntityBlock {
                 case 3 -> "§c沸腾";
                 default -> "§7未知";
             };
+            String purityStatus = switch (purity) {
+                case 0 -> "§4脏水";
+                case 1 -> "§6微脏";
+                case 2 -> "§a可接受";
+                case 3 -> "§b纯净";
+                default -> "§7未知";
+            };
 
             player.displayClientMessage(
                     Component.literal(String.format(
-                            "§7[饮水机] %s | %s | %s | 水量: %d/3",
-                            status, heatStatus, tempStatus, levelVal
+                            "§7[饮水机] %s | %s | %s | %s | 水量: %d/3",
+                            status, heatStatus, tempStatus, purityStatus, levelVal
                     )),
                     true
             );
@@ -222,41 +237,30 @@ public class WaterDispenserBlock extends BaseEntityBlock {
         if (heldItem.is(Items.WATER_BUCKET)) {
             int currentLevel = state.getValue(WATER_LEVEL);
 
-            // 如果已经满了
             if (currentLevel >= MAX_LEVEL) {
-                player.displayClientMessage(
-                        Component.literal("§c饮水机已满！"),
-                        true
-                );
+                player.displayClientMessage(Component.literal("§c饮水机已满！"), true);
                 return InteractionResult.CONSUME;
             }
 
-            // 一桶水直接加满到 3 级
-            int newLevel = MAX_LEVEL;
+            dispenserEntity.fillFullBucket(heldItem);
 
-            // 消耗水桶，返还空桶
+            BlockState newState = state
+                    .setValue(WATER_LEVEL, MAX_LEVEL)
+                    .setValue(HAS_WATER, true);
+            level.setBlock(pos, newState, 3);
+
             if (!player.isCreative()) {
                 heldItem.shrink(1);
                 player.getInventory().add(new ItemStack(Items.BUCKET));
             }
 
-            // 更新状态
-            BlockState newState = state
-                    .setValue(WATER_LEVEL, newLevel)
-                    .setValue(HAS_WATER, true);
-            level.setBlock(pos, newState, 3);
-
-            // 更新 BE 中的 FluidTank（加 3000mB）
-            dispenserEntity.fillFullBucket();
-
             level.playSound(null, pos, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS, 1.0f, 1.0f);
 
             player.displayClientMessage(
-                    Component.literal(String.format("§a已加满水！(%d/%d)", newLevel, MAX_LEVEL)),
+                    Component.literal(String.format("§a已加满水！(%d/%d)", MAX_LEVEL, MAX_LEVEL)),
                     true
             );
 
-            // 如果有红石信号，开始加热
             if (state.getValue(POWERED)) {
                 level.scheduleTick(pos, this, 1);
             }
@@ -269,7 +273,13 @@ public class WaterDispenserBlock extends BaseEntityBlock {
             return dispenserEntity.dispenseWaterToBottle(player, heldItem);
         }
 
-        // ===== 4. 使用 FluidUtil 处理其他液体容器交互 =====
+        // ===== 4. 通过反射支持其他容器接水（软联动） =====
+        InteractionResult thirstResult = dispenserEntity.tryDispenseToContainer(player, heldItem, level, pos);
+        if (thirstResult != InteractionResult.PASS) {
+            return thirstResult;
+        }
+
+        // ===== 5. 使用 FluidUtil 处理其他液体容器交互 =====
         boolean interacted = FluidUtil.interactWithFluidHandler(player, InteractionHand.MAIN_HAND, level, pos, hit.getDirection());
 
         if (interacted) {

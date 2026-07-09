@@ -70,7 +70,15 @@ public enum WaterDispenserProvider implements IBlockComponentProvider {
             tooltip.append(tempText);
         }
 
-        // 5. 显示加热状态
+        // 5. 显示水质状态
+        if (hasWater && entity instanceof WaterDispenserBlockEntity dispenser) {
+            int purity = dispenser.getWaterPurity();
+            Component purityText = getPurityText(purity);
+            tooltip.append(Component.literal(" "));
+            tooltip.append(purityText);
+        }
+
+        // 6. 显示加热状态
         if (heating && hasWater) {
             tooltip.append(Component.literal(" "));
             tooltip.append(HEATING_TEXT);
@@ -79,7 +87,7 @@ public enum WaterDispenserProvider implements IBlockComponentProvider {
             tooltip.append(Component.literal("§6⚡ 加热中 (无水)"));
         }
 
-        // 6. 显示水位条 (移除 Identifiers 依赖)
+        // 7. 显示水位条 (移除 Identifiers 依赖)
         // 直接显示进度条，不依赖 config 检查
         int filled = (int) ((level / (float) WaterDispenserBlock.MAX_LEVEL) * 100);
         String bar = getProgressBar(filled);
@@ -100,6 +108,19 @@ public enum WaterDispenserProvider implements IBlockComponentProvider {
             case 1 -> Component.translatable("jade.xiaoshisfurnitrue.temp.warm");
             case 2 -> Component.translatable("jade.xiaoshisfurnitrue.temp.hot");
             case 3 -> Component.translatable("jade.xiaoshisfurnitrue.temp.boiling");
+            default -> Component.literal("§7❓ 未知");
+        };
+    }
+
+    /**
+     * 获取水质显示文字
+     */
+    private Component getPurityText(int purity) {
+        return switch (purity) {
+            case 0 -> Component.literal("§4💀 脏水");
+            case 1 -> Component.literal("§6⚠️ 微脏");
+            case 2 -> Component.literal("§a✅ 可接受");
+            case 3 -> Component.literal("§b✨ 纯净");
             default -> Component.literal("§7❓ 未知");
         };
     }

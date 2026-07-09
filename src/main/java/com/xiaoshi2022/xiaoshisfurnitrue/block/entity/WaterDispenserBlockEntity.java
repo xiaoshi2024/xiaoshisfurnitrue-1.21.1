@@ -26,6 +26,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.fml.ModList;
+import net.neoforged.neoforge.fluids.FluidActionResult;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
@@ -83,25 +84,7 @@ public class WaterDispenserBlockEntity extends BlockEntity implements GeoBlockEn
     };
 
     private boolean isFluidAcceptable(FluidStack stack) {
-        if (stack.isEmpty()) return false;
-        var fluid = stack.getFluid();
-        var key = BuiltInRegistries.FLUID.getKey(fluid);
-        if (key == null) return false;
-
-        String namespace = key.getNamespace();
-        String path = key.getPath();
-
-        if (fluid.is(FluidTags.WATER)) return true;
-        if (namespace.equals("minecraft") && (path.contains("water") || path.contains("potion"))) return true;
-        if (namespace.equals("toughasnails")) return true;
-        if (namespace.equals("thirstcanteen")) return true;
-        if (fluid.getFluidType().getDescriptionId().contains("water")) return true;
-
-        String fluidName = fluid.getFluidType().getDescription().getString().toLowerCase();
-        return fluidName.contains("污水") || fluidName.contains("waste") ||
-                fluidName.contains("脏水") || fluidName.contains("dirty") ||
-                fluidName.contains("受污染") || fluidName.contains("contaminated") ||
-                fluidName.contains("毒水") || fluidName.contains("poison");
+        return !stack.isEmpty();
     }
 
     // ===== 水质管理 =====
@@ -112,7 +95,10 @@ public class WaterDispenserBlockEntity extends BlockEntity implements GeoBlockEn
             return;
         }
 
-        // ===== 只从 tank 读取，不修改 =====
+        if (!fluid.getFluid().is(FluidTags.WATER)) {
+            return;
+        }
+
         if (isThirstLoaded()) {
             try {
                 Integer purity = getPurityFromFluid(fluid);
@@ -144,7 +130,7 @@ public class WaterDispenserBlockEntity extends BlockEntity implements GeoBlockEn
 
     private void updateFluidPurity() {
         FluidStack fluid = tank.getFluid();
-        if (!fluid.isEmpty() && isThirstLoaded()) {
+        if (!fluid.isEmpty() && isThirstLoaded() && fluid.getFluid().is(FluidTags.WATER)) {
             setPurityToFluid(fluid, waterPurity);
         }
     }
@@ -159,7 +145,10 @@ public class WaterDispenserBlockEntity extends BlockEntity implements GeoBlockEn
         FluidStack fluid = tank.getFluid();
         if (fluid.isEmpty()) return;
 
-        // ===== 加热只提升到可接受级别 =====
+        if (!fluid.getFluid().is(FluidTags.WATER)) {
+            return;
+        }
+
         if (waterPurity < 2) {
             waterPurity = 2;
         } else if (waterPurity >= 1) {
@@ -184,25 +173,27 @@ public class WaterDispenserBlockEntity extends BlockEntity implements GeoBlockEn
 
         tank.drain(tank.getFluidInTank(0).getAmount(), FluidAction.EXECUTE);
 
-        FluidStack water = new FluidStack(
-                net.minecraft.world.level.material.Fluids.WATER,
-                3000
+        FluidStack fluidStack = net.neoforged.neoforge.fluids.FluidUtil.getFluidContained(bucketStack).orElse(
+                new FluidStack(net.minecraft.world.level.material.Fluids.WATER, 3000)
         );
 
-        int purity = 2;
-        if (isThirstLoaded() && bucketStack != null) {
+        if (fluidStack.isEmpty()) {
+            fluidStack = new FluidStack(net.minecraft.world.level.material.Fluids.WATER, 3000);
+        } else {
+            fluidStack = new FluidStack(fluidStack.getFluid(), 3000);
+        }
+
+        if (isThirstLoaded() && fluidStack.getFluid().is(FluidTags.WATER)) {
+            int purity = 2;
             Integer purityFromItem = getPurityFromItem(bucketStack);
             if (purityFromItem != null) {
                 purity = Math.max(0, Math.min(3, purityFromItem));
             }
+            setPurityToFluid(fluidStack, purity);
+            waterPurity = purity;
         }
 
-        if (isThirstLoaded()) {
-            setPurityToFluid(water, purity);
-        }
-
-        waterPurity = purity;
-        tank.fill(water, FluidAction.EXECUTE);
+        tank.fill(fluidStack, FluidAction.EXECUTE);
         updateStateFromTank();
     }
 
@@ -213,33 +204,35 @@ public class WaterDispenserBlockEntity extends BlockEntity implements GeoBlockEn
         int maxFill = 3000 - currentAmount;
         if (maxFill <= 0) return;
 
-        FluidStack water = new FluidStack(
-                net.minecraft.world.level.material.Fluids.WATER,
-                Math.min(maxFill, 1000)
+        FluidStack fluidStack = net.neoforged.neoforge.fluids.FluidUtil.getFluidContained(bucketStack).orElse(
+                new FluidStack(net.minecraft.world.level.material.Fluids.WATER, Math.min(maxFill, 1000))
         );
 
-        int purity = 2;
-        if (isThirstLoaded() && bucketStack != null) {
+        if (fluidStack.isEmpty()) {
+            fluidStack = new FluidStack(net.minecraft.world.level.material.Fluids.WATER, Math.min(maxFill, 1000));
+        } else {
+            fluidStack = new FluidStack(fluidStack.getFluid(), Math.min(maxFill, 1000));
+        }
+
+        if (isThirstLoaded() && fluidStack.getFluid().is(FluidTags.WATER)) {
+            int purity = 2;
             Integer purityFromItem = getPurityFromItem(bucketStack);
             if (purityFromItem != null) {
                 purity = Math.max(0, Math.min(3, purityFromItem));
             }
+            setPurityToFluid(fluidStack, purity);
+
+            if (tank.getFluidAmount() > 0) {
+                int currentPurity = waterPurity;
+                int newPurity = (currentPurity * tank.getFluidAmount() + purity * fluidStack.getAmount()) /
+                        (tank.getFluidAmount() + fluidStack.getAmount());
+                waterPurity = Math.max(0, Math.min(3, newPurity));
+            } else {
+                waterPurity = purity;
+            }
         }
 
-        if (isThirstLoaded()) {
-            setPurityToFluid(water, purity);
-        }
-
-        if (tank.getFluidAmount() > 0) {
-            int currentPurity = waterPurity;
-            int newPurity = (currentPurity * tank.getFluidAmount() + purity * water.getAmount()) /
-                    (tank.getFluidAmount() + water.getAmount());
-            waterPurity = Math.max(0, Math.min(3, newPurity));
-        } else {
-            waterPurity = purity;
-        }
-
-        tank.fill(water, FluidAction.EXECUTE);
+        tank.fill(fluidStack, FluidAction.EXECUTE);
         updateStateFromTank();
     }
 
@@ -285,17 +278,47 @@ public class WaterDispenserBlockEntity extends BlockEntity implements GeoBlockEn
             return InteractionResult.PASS;
         }
 
-        if (!heldItem.is(Items.GLASS_BOTTLE)) {
-            return InteractionResult.PASS;
-        }
-
-        if (waterPurity < 2) {
-            player.displayClientMessage(Component.literal("§c饮水机里的水是污水/脏水，不能装瓶！"), true);
+        FluidStack tankFluid = tank.getFluid();
+        if (tankFluid.isEmpty()) {
+            player.displayClientMessage(Component.literal("§c饮水机是空的！"), true);
             return InteractionResult.PASS;
         }
 
         boolean isHot = temperature >= 2;
-        ItemStack result = getBottleOutput(waterPurity);
+        ItemStack result = ItemStack.EMPTY;
+        boolean useVanillaWaterLogic = false;
+        int amountBefore = tank.getFluidAmount();
+
+        if (tankFluid.getFluid().is(FluidTags.WATER) && heldItem.is(Items.GLASS_BOTTLE)) {
+            useVanillaWaterLogic = true;
+            if (waterPurity < 2) {
+                player.displayClientMessage(Component.literal("§c饮水机里的水是污水/脏水，不能装瓶！"), true);
+                return InteractionResult.PASS;
+            }
+            result = getBottleOutput(waterPurity);
+        } else {
+            var fluidHandlerOpt = net.neoforged.neoforge.fluids.FluidUtil.getFluidHandler(heldItem);
+            if (fluidHandlerOpt.isEmpty()) {
+                return InteractionResult.PASS;
+            }
+
+            var fluidHandler = fluidHandlerOpt.get();
+            FluidStack fillStack = new FluidStack(tankFluid.getFluid(), tankFluid.getAmount());
+            int filledAmount = fluidHandler.fill(fillStack, FluidAction.SIMULATE);
+            if (filledAmount <= 0) {
+                return InteractionResult.PASS;
+            }
+
+            tank.drain(filledAmount,FluidAction.EXECUTE);
+
+            ItemStack filledStack = heldItem.copy();
+            var filledHandler = net.neoforged.neoforge.fluids.FluidUtil.getFluidHandler(filledStack).orElse(null);
+            if (filledHandler != null) {
+                FluidStack actualFill = new FluidStack(tankFluid.getFluid(), filledAmount);
+                filledHandler.fill(actualFill, FluidAction.EXECUTE);
+                result = filledStack;
+            }
+        }
 
         if (result.isEmpty()) {
             player.displayClientMessage(Component.literal("§e无法接取液体！"), true);
@@ -309,8 +332,13 @@ public class WaterDispenserBlockEntity extends BlockEntity implements GeoBlockEn
             }
         }
 
-        int newLevel = Math.max(currentLevel - 1, 0);
-        tank.drain(1000, FluidAction.EXECUTE);
+        if (useVanillaWaterLogic) {
+            tank.drain(1000, FluidAction.EXECUTE);
+        }
+        int amountAfter = tank.getFluidAmount();
+        int drainedAmount = amountBefore - amountAfter;
+        int levelDecrease = drainedAmount / 1000;
+        int newLevel = Math.max(currentLevel - levelDecrease, 0);
 
         BlockState newState = state
                 .setValue(WaterDispenserBlock.WATER_LEVEL, newLevel)
@@ -332,7 +360,10 @@ public class WaterDispenserBlockEntity extends BlockEntity implements GeoBlockEn
             level.playSound(null, worldPosition, SoundEvents.BUCKET_FILL, SoundSource.BLOCKS, 0.5f, 1.0f);
         }
 
-        String liquidName = isHot ? "热水" : "水";
+        String liquidName = tankFluid.getFluid().getFluidType().getDescription().getString();
+        if (tankFluid.getFluid().is(FluidTags.WATER)) {
+            liquidName = isHot ? "热水" : "水";
+        }
         player.displayClientMessage(
                 Component.literal(String.format("§a已接取 %s §a！(%d/%d)", liquidName, newLevel, WaterDispenserBlock.MAX_LEVEL)),
                 true
@@ -771,17 +802,11 @@ public class WaterDispenserBlockEntity extends BlockEntity implements GeoBlockEn
             return FluidStack.EMPTY;
         }
 
-        FluidStack waterStack = new FluidStack(
-                net.minecraft.world.level.material.Fluids.WATER,
-                fluid.getAmount()
-        );
-
-        // ===== 直接使用 waterPurity，不从 tank 读取 =====
-        if (isThirstLoaded()) {
-            setPurityToFluid(waterStack, waterPurity);
+        if (isThirstLoaded() && fluid.getFluid().is(FluidTags.WATER)) {
+            setPurityToFluid(fluid, waterPurity);
         }
 
-        return waterStack;
+        return fluid;
     }
 
     @Override
@@ -813,19 +838,14 @@ public class WaterDispenserBlockEntity extends BlockEntity implements GeoBlockEn
     public FluidStack drain(FluidStack resource, FluidAction action) {
         FluidStack drained = tank.drain(resource, action);
         if (action.execute() && !drained.isEmpty()) {
-            FluidStack waterStack = new FluidStack(
-                    net.minecraft.world.level.material.Fluids.WATER,
-                    drained.getAmount()
-            );
-            if (isThirstLoaded()) {
+            if (isThirstLoaded() && drained.getFluid().is(FluidTags.WATER)) {
                 Integer purity = getPurityFromFluid(drained);
                 if (purity != null) {
-                    setPurityToFluid(waterStack, purity);
+                    setPurityToFluid(drained, purity);
                 } else {
-                    setPurityToFluid(waterStack, waterPurity);
+                    setPurityToFluid(drained, waterPurity);
                 }
             }
-            drained = waterStack;
             updateStateFromTank();
             setChanged();
         }
@@ -834,25 +854,13 @@ public class WaterDispenserBlockEntity extends BlockEntity implements GeoBlockEn
 
     @Override
     public FluidStack drain(int maxDrain, FluidAction action) {
-        // 先执行 drain
         FluidStack drained = tank.drain(maxDrain, action);
         if (action.execute() && !drained.isEmpty()) {
-            // 创建全新的 FluidStack，完全独立
-            FluidStack waterStack = new FluidStack(
-                    net.minecraft.world.level.material.Fluids.WATER,
-                    drained.getAmount()
-            );
-
-            if (isThirstLoaded()) {
-                setPurityToFluid(waterStack, waterPurity);
+            if (isThirstLoaded() && drained.getFluid().is(FluidTags.WATER)) {
+                setPurityToFluid(drained, waterPurity);
             }
-
-            // 更新 tank 状态
             updateStateFromTank();
             setChanged();
-
-            // 返回新的 FluidStack，不返回 tank.drain 的直接结果
-            return waterStack;
         }
         return drained;
     }

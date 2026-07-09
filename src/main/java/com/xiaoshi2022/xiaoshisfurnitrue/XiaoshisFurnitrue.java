@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
+import com.xiaoshi2022.xiaoshisfurnitrue.block.entity.WaterDispenserBlockEntity;
 import com.xiaoshi2022.xiaoshisfurnitrue.register.ModBlockEntities;
 import com.xiaoshi2022.xiaoshisfurnitrue.register.ModBlocks;
 import com.xiaoshi2022.xiaoshisfurnitrue.register.ModCreativeTabs;
@@ -18,6 +19,7 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.common.NeoForge;
 
 @Mod(XiaoshisFurnitrue.MODID)
@@ -27,6 +29,7 @@ public class XiaoshisFurnitrue {
 
     public XiaoshisFurnitrue(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
+        modEventBus.addListener(this::registerCapabilities);
 
         ModBlocks.BLOCKS.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
@@ -49,5 +52,13 @@ public class XiaoshisFurnitrue {
 
     private void commonSetup(FMLCommonSetupEvent event) {
         LOGGER.info("小噬的家具模组加载完成！");
+    }
+
+    public void registerCapabilities(net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent event) {
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                ModBlockEntities.WATER_DISPENSER_BLOCK_ENTITY.get(),
+                (blockEntity, context) -> (net.neoforged.neoforge.fluids.capability.IFluidHandler) blockEntity
+        );
     }
 }

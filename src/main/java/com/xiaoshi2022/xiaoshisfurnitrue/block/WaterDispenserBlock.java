@@ -233,8 +233,8 @@ public class WaterDispenserBlock extends BaseEntityBlock {
             return InteractionResult.CONSUME;
         }
 
-        // ===== 2. 检查是否拿着水桶 - 加水（一桶加满 = 3级） =====
-        if (heldItem.is(Items.WATER_BUCKET)) {
+        // ===== 2. 检查是否拿着液体桶 - 加水（一桶加满 = 3级） =====
+        if (net.neoforged.neoforge.fluids.FluidUtil.getFluidContained(heldItem).isPresent()) {
             int currentLevel = state.getValue(WATER_LEVEL);
 
             if (currentLevel >= MAX_LEVEL) {
@@ -257,7 +257,7 @@ public class WaterDispenserBlock extends BaseEntityBlock {
             level.playSound(null, pos, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS, 1.0f, 1.0f);
 
             player.displayClientMessage(
-                    Component.literal(String.format("§a已加满水！(%d/%d)", MAX_LEVEL, MAX_LEVEL)),
+                    Component.literal(String.format("§a已加满！(%d/%d)", MAX_LEVEL, MAX_LEVEL)),
                     true
             );
 
@@ -268,8 +268,9 @@ public class WaterDispenserBlock extends BaseEntityBlock {
             return InteractionResult.CONSUME;
         }
 
-        // ===== 3. 检查是否拿着玻璃瓶 - 接水（一次取1级） =====
-        if (heldItem.is(Items.GLASS_BOTTLE)) {
+        // ===== 3. 检查是否拿着空的流体容器 - 接水 =====
+        if (net.neoforged.neoforge.fluids.FluidUtil.getFluidHandler(heldItem).isPresent() &&
+                !net.neoforged.neoforge.fluids.FluidUtil.getFluidContained(heldItem).isPresent()) {
             return dispenserEntity.dispenseWaterToBottle(player, heldItem);
         }
 
